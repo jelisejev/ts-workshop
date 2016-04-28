@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server --proxy http://localhost:3000",
-    "start-backend": "node backend/bin/www"
+    "start-backend": "node backend/bin/www",
+    "dev": "tsc -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "typescript": "^1.8.10"
   }
 }
