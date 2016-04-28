@@ -21,6 +21,7 @@ class CssStatsComponent {
     this.elem.find('.selectors').text(selectors.total);
     
     this.renderColors(declarations);
+    this.renderChart(selectors);
   }  
   
   private renderColors(declarations: Declarations) {
@@ -42,6 +43,23 @@ class CssStatsComponent {
       return uniqueColors;
     }, []);
   }
+  
+  private renderChart(selectors: Selectors) {
+    $('.chart', this.elem).highcharts({
+      chart: {
+        type: 'bar',
+        height: 800
+      },
+      title: {
+        text: 'Selector specificity'
+      },
+      series: [{
+        name: 'Selectors',
+        data: selectors.specificity.graph
+      }],
+        
+    });
+  }
 }
 
 interface CssStatsData {
@@ -49,9 +67,7 @@ interface CssStatsData {
     rules: {
       total: number;
     };
-    selectors: {
-      total: number;
-    },
+    selectors: Selectors;
     declarations: Declarations;
   }
 }
@@ -59,6 +75,13 @@ interface CssStatsData {
 interface Declarations {
   properties: {
     color: Array<string>  
+  };
+}
+
+interface Selectors {
+  total: number;
+  specificity: {
+    graph: Array<number>;
   };
 }
 
