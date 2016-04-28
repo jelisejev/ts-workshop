@@ -4,6 +4,7 @@
     "sourceMap": true
   },
   "files": [
-    "src/index.ts"
+    "src/index.ts",
+    "typings/browser.d.ts"
   ]
 }
