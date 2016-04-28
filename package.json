@@ -1,0 +1,15 @@
+{
+  "name": "ts-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server --proxy http://localhost:3000",
+    "start-backend": "node backend/bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
